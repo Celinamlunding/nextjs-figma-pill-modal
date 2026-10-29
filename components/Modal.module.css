@@ -1,12 +1,60 @@
-/* Figma: the component "Modal". Use your tokens with var(). */
-
-/* The dialog itself */
-.modal {
-  margin: auto; /* The reset in globals.css removes the centering of <dialog>, so add it back */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 20, 0.18);
+  display: grid;
+  place-items: center;
+  z-index: 10;
 }
 
-/* Auto layout -> flexbox (step 1.3) */
+.modal {
+  position: relative;
+  width: min(31.25rem, calc(100vw - 2rem));
+  background: rgba(245, 245, 243, 0.97);
+  border-radius: 1.5rem;
+  box-shadow: 0 1.25rem 3rem -0.75rem rgba(0, 0, 0, 0.12);
+  padding: 2.25rem 2.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
 
-/* Title and text (step 1.3) and the separator (step 1.4) */
+.closeButton {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  color: rgba(23, 23, 26, 0.7);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
 
-/* Smart Animate -> transition (extra 3) */
+.separator {
+  display: block;
+  width: 2.5rem;
+  height: 0.3125rem;
+  border-radius: 999px;
+  background: rgba(255, 61, 139, 1);
+}
+
+.title {
+  margin: 0;
+  color: rgba(23, 23, 26, 1);
+  font-size: clamp(2rem, 2.1vw, 2.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+}
+
+.text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(85, 85, 79, 1);
+  letter-spacing: -0.01em;
+  max-width: 24rem;
+}

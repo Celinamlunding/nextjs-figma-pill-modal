@@ -1,16 +1,30 @@
+"use client";
+
+import { useState } from "react";
 import Modal from "@/components/Modal";
 import Pill from "@/components/Pill";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <main className={styles.page}>
-      <h1>Components</h1>
-      <div className={styles.pills}>
-        <Pill />
+      <div className={styles.buttonWrap}>
+        <Pill
+          type="primary"
+          state="default"
+          onClick={() => setIsModalOpen(true)}
+        >
+          Primary
+        </Pill>
       </div>
-      {/* A closed <dialog> is hidden. Give it isOpen to see it in step 1.1. From step 1.2, PillModal opens it. */}
-      <Modal />
+
+      <Modal
+        showSeparator
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </main>
   );
 }
